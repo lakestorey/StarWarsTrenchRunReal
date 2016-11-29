@@ -56,6 +56,7 @@ namespace StarwarsTrenchRun
             //clear background
             this.BackgroundImage = null;
             Refresh();
+
             //show text about the mission
             fg.DrawString("Death Star Attack Plan:", arial16, redBrush, 20,20);
             fg.DrawString("Step 1: Shoot the thing\nStep 2: Blow up " +
@@ -63,6 +64,7 @@ namespace StarwarsTrenchRun
             Thread.Sleep(3000);
             fg.Clear(Color.Black);
 
+            //Moves ship accross screen and makes bomb dropping animation
             while (shipX <= this.Width + 20) 
             {
                 if (shipX <= 160)
@@ -75,6 +77,7 @@ namespace StarwarsTrenchRun
                     fg.FillRectangle(blackBrush, 161, 95, 23, 10);
                     shipX++;
                 }
+                //if the bomb is at 41 y it will make a noise
                 else if(bombY == 41)
                 {
                     laserBlasts.Play();
@@ -96,6 +99,8 @@ namespace StarwarsTrenchRun
 
             explosionSound.Play();
             Thread.Sleep(300);
+
+            //makes explosion animation
             while (explosionSize <= 200)
             {
                 Thread.Sleep(10);
@@ -111,6 +116,7 @@ namespace StarwarsTrenchRun
                 explosionY--;
                 explosionX--;
             }
+
             fg.Clear(Color.Black);
             fg.DrawString("Mission Success!!", arial16, whiteBrush, 10, 10);
             successSound.Play();
