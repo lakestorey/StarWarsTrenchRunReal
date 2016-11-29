@@ -77,7 +77,7 @@ namespace StarwarsTrenchRun
                     fg.FillRectangle(blackBrush, 161, 95, 23, 10);
                     shipX++;
                 }
-                //if the bomb is at 41 y it will make a noise
+                //if the bomb is at 41 y it will make a shooting noise
                 else if(bombY == 41)
                 {
                     laserBlasts.Play();
